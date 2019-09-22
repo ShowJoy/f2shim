@@ -1,0 +1,23 @@
+{
+  "name": "f2shim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "",
+    "build": "",
+    "deploy": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "f2shim",
+    "f2",
+    "tootip"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  }
+}

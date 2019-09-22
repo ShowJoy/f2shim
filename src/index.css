@@ -1,0 +1,106 @@
+.f2-chart-wrapper {
+  position: relative;
+}
+.f2-chart-wrapper .f2-clicked {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+}
+.f2-chart-wrapper .f2-tooltip {
+  z-index: 99;
+  background-color: #515151;
+  padding: 5px;
+  border-radius: 3px;
+  width: 120px;
+  opacity: 0;
+  font-size: 12px;
+  pointer-events: none;
+}
+.f2-chart-wrapper .f2-tooltip label {
+  color: #B1B1B1;
+}
+.f2-chart-wrapper .f2-tooltip span {
+  color: white;
+  word-break: break-all;
+}
+.f2-chart-wrapper .f2-tooltip-title {
+  color: white;
+  font-weight: bold;
+}
+.f2-chart-wrapper .f2-tooltip-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.f2-chart-wrapper .f2-tooltip-item-left {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  display: inline-block;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  margin-right: 2px;
+}
+.f2-chart-wrapper .f2-tooltip__arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+  border-color: #515151;
+}
+.f2-chart-wrapper .f2-tooltip[x-placement^="top"] {
+  margin-bottom: 5px;
+}
+.f2-chart-wrapper .f2-tooltip[x-placement^="top"] .f2-tooltip__arrow {
+  border-width: 5px 5px 0 5px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  bottom: -5px;
+  left: calc(45%);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.f2-chart-wrapper .f2-tooltip[x-placement^="bottom"] {
+  margin-top: 5px;
+}
+.f2-chart-wrapper .f2-tooltip[x-placement^="bottom"] .f2-tooltip__arrow {
+  border-width: 0 5px 5px 5px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  top: -5px;
+  left: calc(45%);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.f2-chart-wrapper .f2-tooltip[x-placement^="right"] {
+  margin-left: 5px;
+}
+.f2-chart-wrapper .f2-tooltip[x-placement^="right"] .f2-tooltip__arrow {
+  border-width: 5px 5px 5px 0;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  left: -5px;
+  top: calc(45%);
+  margin-left: 0;
+  margin-right: 0;
+}
+.f2-chart-wrapper .f2-tooltip[x-placement^="left"] {
+  margin-right: 5px;
+}
+.f2-chart-wrapper .f2-tooltip[x-placement^="left"] .f2-tooltip__arrow {
+  border-width: 5px 0 5px 5px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  right: -5px;
+  top: calc(45%);
+  margin-left: 0;
+  margin-right: 0;
+}
