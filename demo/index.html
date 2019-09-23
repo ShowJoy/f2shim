@@ -1,58 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>F2shim 示例</title>
+    <script src="../build/f2-all.js"></script>
+    <script src="../build/f2shim.js"></script>
 </head>
 <body>
-    <button onclick="">添加</button>
-    <div>
-      <canvas style="width: 100%" id="demo"></canvas>
-    </div>
-  </div>
-  <script>
-    const addLineData = () => {
-      const data = Array.from({ length: 5 }, (v, index) => index).reduce((temp, a) => temp.concat(['贝壳贝壳贝壳贝壳', '链家', '贝壳集团', '境内', '境外', '短发假发',
-        '贝壳1', '链家1', '贝壳集团1', '境内1', '境外1', '链家11', '贝壳集团11', '境内11', '境外11'].map(item => ({
-        time: `5-${a}`,
-        type: item,
-        value: parseInt(Math.random() * 100, 10),
-      }))), []);
-      this.chart.changeData(data);
-    }
-  
-    const renderLine = () => {
-      // Step 1: 创建 Chart 对象
-      const chart = new F2.Chart({
-        id: 'demo',
-        height: 300,
-        pixelRatio: window.devicePixelRatio, // 指定分辨率
-        plugins: f2shim,
-      });
-      this.chart = chart;
-  
-      // Step 2: 载入数据源
-      chart.source(gData);
-  
-      chart.tooltip({
-        custom: true,
-        showCrosshairs: false,
-        showTitle: true,
-        modifiers: {
-          preventOverflow: {
-            boundariesElement: document.querySelector('#demo').parentElement,
-          },
+
+<div>请打开移动端模拟器查看</div>
+<div>
+  <canvas style="width: 100%" id="demo"></canvas>
+</div>
+<button style="color: red;border: 1px solid red" onclick="addLineData()">click me!</button>
+<script>
+  // F2 对数据源格式的要求，仅仅是 JSON 数组，数组的每个元素是一个标准 JSON 对象。
+  const gData = Array.from({ length: 5 }, (v, index) => index).reduce((temp, a) => temp.concat(['张三', '李四', '王五', '赵六',
+    '张三1', '李四1', '王五1', '赵六1', '张三2', '李四3', '王五4', '赵六5'].map(item => ({
+    time: `5-${a}`,
+    type: item,
+    value: parseInt(Math.random() * 100, 10),
+  }))), []);
+
+  var addLineData = function (){
+    const data = Array.from({ length: 5 }, (v, index) => index).reduce((temp, a) => temp.concat(['张三', '李四', '王五', '赵六',
+    '张三1', '李四1', '王五1', '赵六1'].map(item => ({
+      time: `5-${a}`,
+      type: item,
+      value: parseInt(Math.random() * 100, 10),
+    }))), []);
+    this.chart.changeData(data);
+  }
+
+  var renderLine = function () {
+    // Step 1: 创建 Chart 对象
+    const chart = new F2.Chart({
+      id: 'demo',
+      height: 300,
+      pixelRatio: window.devicePixelRatio, // 指定分辨率
+      plugins: f2shim.default,
+    });
+    this.chart = chart;
+
+    // Step 2: 载入数据源
+    chart.source(gData);
+
+    chart.tooltip({
+      custom: true,
+      showCrosshairs: false,
+      showTitle: true,
+      modifiers: {
+        preventOverflow: {
+          boundariesElement: document.querySelector('#demo').parentElement,
         },
-      });
-  
-      // Step 3：创建图形语法，绘制柱状图，由 time 和 value 两个属性决定图形位置，time 映射至 x 轴，value 映射至 y 轴
-      chart.line().position('time*value').color('type');
-  
-      // Step 4: 渲染图表
-      chart.render();
-    }
-  </script>
+      },
+    });
+
+    // Step 3：创建图形语法，绘制柱状图，由 time 和 value 两个属性决定图形位置，time 映射至 x 轴，value 映射至 y 轴
+    chart.line().position('time*value').color('type');
+
+    // Step 4: 渲染图表
+    chart.render();
+  }
+  renderLine();
+</script>
 </body>
 </html> 

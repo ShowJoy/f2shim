@@ -4,6 +4,7 @@
   "description": "一个提供legend自适应，tooltip脱离canvas的[F2](https://github.com/antvis/f2)插件",
   "main": "lib/index.js",
   "scripts": {
+    "build-web": "webpack --mode=none",
     "build": "babel src --out-dir lib --copy-files",
     "deploy": "npm version patch && npm run build && npm publish"
   },
@@ -21,6 +22,11 @@
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0"
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
   }
 }
