@@ -1,13 +1,11 @@
 {
   "name": "f2shim",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "一个提供legend自适应，tooltip脱离canvas的[F2](https://github.com/antvis/f2)插件",
+  "main": "lib/index.js",
   "scripts": {
-    "dev": "",
-    "build": "",
-    "deploy": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-lib": "babel src --out-dir lib --copy-files",
+    "deploy": ""
   },
   "keywords": [
     "f2shim",
@@ -16,8 +14,13 @@
   ],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.2.1",
+    "popper.js": "^1.15.0"
+  },
   "devDependencies": {
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9"
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0"
   }
 }

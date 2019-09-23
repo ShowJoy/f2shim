@@ -1,4 +1,4 @@
-import Popper from './popper';
+import Popper from 'popper.js';
 import './index.css';
 
 function insertAfter(newElement, targetElement) {
@@ -28,7 +28,7 @@ class F2Shim {
     insertAfter(this.tooltipEL, canvasDom);
   }
 
-  adjustCanvasHeight() {
+  adjustCanvasSize() {
     const { chart } = this;
     const legendRange = chart.get('legendRange');
     const height = chart.get('originHeight') + (legendRange ? (legendRange.top || legendRange.bottom) : 0);
@@ -50,10 +50,10 @@ class F2Shim {
         if (ret === false) { return; }
         const { items } = ev;
         let html = '<div class="f2-tooltip__arrow" x-arrow></div>';
-        let maxY = items[0].y;
-        let minY = items[0].y;
-        let maxX = items[0].x;
-        let minX = items[0].x;
+        let minX = Infinity;
+        let maxX = -Infinity;
+        let minY = Infinity;
+        let maxY = -Infinity;
         if (showTitle && !content) {
           html += '<div class="f2-tooltip-title">title</div>';
         }
@@ -116,9 +116,6 @@ export default {
     chart.set('f2shim', shim);
     chart.set('originHeight', chart.get('height'));
   },
-  // beforeGeomInit(chart) {
-  //   console.log('beforeGeomDraw', chart.get('legendRange'))
-  // },
   beforeGeomDraw(chart) {
     const shim = chart.get('f2shim');
 
@@ -126,16 +123,7 @@ export default {
     if (tooltipController.cfg) {
       tooltipController.cfg = shim.tooltip(tooltipController.cfg);
     }
-    // console.log('beforeGeomDraw', chart.get('legendRange'))
-    shim.adjustCanvasHeight();
+    const autoSize = chart.get('autoSize');
+    (autoSize === undefined || autoSize) && shim.adjustCanvasSize();
   },
-  // changeData(chart) {
-  //   console.log('changeData');
-  // },
-  // afterGeomDraw(chart) {
-  //   console.log('afterGeomDraw', chart.get('legendRange'))
-  // },
-  // beforeCanvasDraw(chart) {
-  //   console.log('beforeCanvasDraw', chart.get('legendRange'))
-  // }
 };
