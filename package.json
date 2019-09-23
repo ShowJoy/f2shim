@@ -4,8 +4,8 @@
   "description": "一个提供legend自适应，tooltip脱离canvas的[F2](https://github.com/antvis/f2)插件",
   "main": "lib/index.js",
   "scripts": {
-    "build-lib": "babel src --out-dir lib --copy-files",
-    "deploy": ""
+    "build": "babel src --out-dir lib --copy-files",
+    "deploy": "npm version patch && npm run build && npm publish"
   },
   "keywords": [
     "f2shim",

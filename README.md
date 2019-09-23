@@ -49,7 +49,8 @@ npm install --save f2shim
       },
     })
    ```
-3. 关掉legend高度自适应，配置autoSize为false：
+3. tooltip样式不满足，可以自己更具元素类名覆盖内置样式
+4. 关掉legend高度自适应，配置autoSize为false：
    ```js
    const chart = new F2.Chart({
       id: 'demo',
