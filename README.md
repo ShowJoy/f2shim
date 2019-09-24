@@ -1,6 +1,8 @@
 # f2shim
 一个提供legend高度自适应，tooltip脱离canvas的[F2](https://github.com/antvis/f2)插件
 
+![f2shim](https://user-images.githubusercontent.com/1659577/65492419-7a299a00-dee3-11e9-8a2c-ebc01e8b8930.gif)
+
 # 安装
 ```
 npm install --save f2shim
